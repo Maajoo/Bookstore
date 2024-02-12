@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BookstoreApplication<bookstore>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "bkstr.bookstore.BookstoreApplication",
+            "projectName": "bookstore",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
