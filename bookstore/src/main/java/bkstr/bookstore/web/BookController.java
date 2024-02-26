@@ -22,28 +22,36 @@ public class BookController {
         return "booklist";
     }
 
-
-    //DELETE
+    // DELETE
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteBook(@PathVariable("id") Long bookId, Model model) {
         repository.deleteById(bookId);
         return "redirect:../booklist";
     }
 
-    //ADD
+    // ADD
     @RequestMapping(value = "/add")
-    public String addBook(Model model){
+    public String addBook(Model model) {
         model.addAttribute("book", new Book());
         return "addbook";
     }
 
-    //SAVE
+    // SAVE
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(Book book){
+    public String save(Book book) {
         repository.save(book);
-        return "redirect:booklist";
+        return "redirect:/booklist";
     }
 
+    // EDIT
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editBook(@PathVariable("id") Long bookId, Model model) {
+        Book book = repository.findById(bookId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid book Id: " + bookId));
+
+        model.addAttribute("book", book);
+        return "editbook";
+    }
 
     @RequestMapping("/index")
     public String giveEtusivu() {
