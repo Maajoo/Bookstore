@@ -23,6 +23,7 @@ public class BookController {
     }
 
     // DELETE
+    @SuppressWarnings("null")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteBook(@PathVariable("id") Long bookId, Model model) {
         repository.deleteById(bookId);
@@ -37,6 +38,7 @@ public class BookController {
     }
 
     // SAVE
+    @SuppressWarnings("null")
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(Book book) {
         repository.save(book);
@@ -46,6 +48,7 @@ public class BookController {
     // EDIT
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editBook(@PathVariable("id") Long bookId, Model model) {
+        @SuppressWarnings("null")
         Book book = repository.findById(bookId)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid book Id: " + bookId));
 
