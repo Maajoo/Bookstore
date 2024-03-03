@@ -27,6 +27,9 @@
                 <td>
                     <h3>Price</h3>
                 </td>
+                <td>
+                    <h3>Category</h3>
+                </td>
             </tr>
             <tr th:each="book : ${books}">
                 <td th:text="${book.author}"></td>
@@ -34,6 +37,13 @@
                 <td th:text="${book.isbn}"></td>
                 <td th:text="${book.publicationYear}"></td>
                 <td th:text="${book.price}"></td>
+
+                <!-- <td th:text="${book.category.name}"></td> -->
+                <td th:if="${book.category}" th:text="${book.category.name}"
+                    th:utext="${book.category != null ? book.category.name : 'No Category'}"></td>
+                <td th:unless="${book.category}">No Category</td>
+
+
                 <td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
                 <td><a th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
             </tr>
