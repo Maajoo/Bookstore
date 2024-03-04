@@ -74,6 +74,7 @@ public class BookController {
     }
 
     //RESTful service to get a book by id
+    @SuppressWarnings("null")
     @RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
     public @ResponseBody Optional<Book> findBookRest(@PathVariable("id") Long bookId) {
         return repository.findById(bookId);
