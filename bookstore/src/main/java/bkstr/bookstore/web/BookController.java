@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import bkstr.bookstore.domain.Book;
 import bkstr.bookstore.domain.BookRepository;
+import bkstr.bookstore.domain.Category;
 import bkstr.bookstore.domain.CategoryRepository;
 
 @Controller
@@ -62,8 +63,11 @@ public class BookController {
         return "editbook";
     }
 
+
+    // ETUSIVU
     @RequestMapping("/index")
     public String giveEtusivu() {
         return "Bookstore";
     }
+
 }
