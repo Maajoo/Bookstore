@@ -24,11 +24,18 @@ public class BookController {
 
     @Autowired
     private CategoryRepository crepository;
+    
 
     @RequestMapping("/booklist")
     public String giveBooklist(Model model) {
         model.addAttribute("books", repository.findAll());
         return "booklist";
+    }
+
+    // LOGIN
+    @RequestMapping(value = "/login")
+    public String login() {
+        return "login";
     }
 
     // DELETE

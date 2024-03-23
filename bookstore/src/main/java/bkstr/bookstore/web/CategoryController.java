@@ -15,7 +15,7 @@ public class CategoryController {
     @Autowired
     private CategoryRepository categoryRepository;
 
-        // CATEGORY LIST
+    // CATEGORY LIST
     @RequestMapping("/categorylist")
     public String showCategoryList(Model model) {
         model.addAttribute("categories", categoryRepository.findAll());
