@@ -41,10 +41,10 @@
                     <td>
                         <h3>Category</h3>
                     </td>
-                    <td sec:authorize="hasRole('ADMIN')">
+                    <td sec:authorize="hasAuthority('ADMIN')">
                         <h3>Delete</h3>
                     </td>
-                    <td sec:authorize="hasRole('ADMIN')">
+                    <td sec:authorize="hasAuthority('ADMIN')">
                         <h3>Edit</h3>
                     </td>
                 </tr>
@@ -60,9 +60,9 @@
                     <td th:unless="${book.category}">No Category</td>
 
 
-                    <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}"
+                    <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}"
                             class="btn btn-danger">Delete</a></td>
-                    <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/edit/{id}(id=${book.id})}"
+                    <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${book.id})}"
                             class="btn btn-secondary">Edit</a></td>
                 </tr>
             </tbody>
